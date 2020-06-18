@@ -20,6 +20,8 @@ docker create \
 -e SURFSHARK_PASSWORD= \
 -e SURFSHARK_COUNTRY=be,ch,nl \
 -e CONNECTION_TYPE=udp \
+--dns 1.1.1.1 \
+--dns 1.0.0.1 \
 --cap-add=NET_ADMIN \
 --device /dev/net/tun \
 --name surfshark01 \

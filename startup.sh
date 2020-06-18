@@ -22,4 +22,6 @@ test -z "${SURFSHARK_PASSWORD}" && echo "Missing SurfShark Password (SURFSHARK_P
 
 printf "${SURFSHARK_USER}\n${SURFSHARK_PASSWORD}" > vpn-auth.txt
 
+chmod 600 vpn-auth.txt
+
 openvpn --config $VPN_FILE --auth-user-pass vpn-auth.txt
