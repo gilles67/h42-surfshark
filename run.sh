@@ -16,12 +16,12 @@ docker volume create surfshark_data
 
 docker create \
 -v surfshark_data:/vpn \
--e SURFSHARK_USER=
--e SURFSHARK_PASSWORD=
--e SURFSHARK_COUNTRY=be,ch,nl
--e CONNECTION_TYPE=udp
---cap-add=NET_ADMIN
---device /dev/net/tun
+-e SURFSHARK_USER= \
+-e SURFSHARK_PASSWORD= \
+-e SURFSHARK_COUNTRY=be,ch,nl \
+-e CONNECTION_TYPE=udp \
+--cap-add=NET_ADMIN \
+--device /dev/net/tun \
 --name surfshark01 \
 --restart always \
 h42-surfshark

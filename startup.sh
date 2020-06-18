@@ -1,5 +1,5 @@
 #!/bin/sh
-if test -d! ./ovpn_configs ; then
+if test ! -d ./ovpn_configs ; then
   wget -O ovpn_configs.zip https://api.surfshark.com/v1/server/configurations
   unzip ovpn_configs.zip -d ovpn_configs
 fi
@@ -7,10 +7,10 @@ cd ovpn_configs
 
 test -z "${SURFSHARK_COUNTRY}" && echo "No country selected (SURFSHARK_COUNTRY) " && exit 1
 
-$FILTER=""
+FILTER=""
 COUNTRIES=$(echo $SURFSHARK_COUNTRY | tr "," "\n")
 for COUNTRY in $COUNTRIES; do
-  $FILTER="-e $COUNTRY- "
+  FILTER="$FILTER -e $COUNTRY-"
 done
 
 VPN_FILE=$(ls | grep $FILTER | grep -e "_${CONNECTION_TYPE}" | shuf | head -n 1)
