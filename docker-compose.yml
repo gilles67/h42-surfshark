@@ -1,16 +1,15 @@
 version: "2"
 
-services: 
+services:
     surfshark:
-        image: ilteoood:latest
+        image: h42-surfshark:latest
         container_name: surfshark
-        environment: 
+        environment:
             - SURFSHARK_USER=YOUR_SURFSHARK_USER
             - SURFSHARK_PASSWORD=YOUR_SURFSHARK_PASSWORD
-            - SURFSHARK_COUNTRY=it
-            - SURFSHARK_CITY=mil
+            - SURFSHARK_COUNTRY=it,es
             - CONNECTION_TYPE=udp
-        cap_add: 
+        cap_add:
             - NET_ADMIN
         devices:
             - /dev/net/tun
